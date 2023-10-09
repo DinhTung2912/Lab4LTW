@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        /* CSS để thiết lập màu nền ban đầu của trang web */
+        body {
+            background-color: #ffffff; /* Màu nền mặc định */
+        }
+
+        /* CSS để tạo các nút với các màu khác nhau */
+        .color-button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!-- Danh sách các nút với các màu khác nhau -->
+<button class="color-button" style="background-color: red;" onclick="changeBackgroundColor('red')">Red</button>
+<button class="color-button" style="background-color: green;" onclick="changeBackgroundColor('green')">Green</button>
+<button class="color-button" style="background-color: blue;" onclick="changeBackgroundColor('blue')">Blue</button>
+<button class="color-button" style="background-color: yellow;" onclick="changeBackgroundColor('yellow')">Yellow</button>
+
+<script>
+    // JavaScript để thay đổi màu nền của trang web khi nhấn vào nút
+    function changeBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+</script>
+</body>
+</html>

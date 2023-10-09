@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  document.getElementById('signInButton').addEventListener('click', function () {
+    // Lấy giá trị từ các trường input
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
+
+    // Thiết lập biến kiểm tra lỗi và thông báo lỗi
+    var isError = false;
+    var usernameError = document.getElementById('usernameError');
+    var passwordError = document.getElementById('passwordError');
+
+    // Kiểm tra và xử lý lỗi
+    if (username === '') {
+      usernameError.textContent = 'Please enter your username or email.';
+      isError = true;
+    } else {
+      usernameError.textContent = '';
+    }
+
+    if (password === '') {
+      passwordError.textContent = 'Please enter your password.';
+      isError = true;
+    } else {
+      passwordError.textContent = '';
+    }
+
+    // Nếu không có lỗi, bạn có thể tiếp tục xử lý biểu mẫu hoặc gửi dữ liệu lên máy chủ
+    if (!isError) {
+      // Thực hiện xử lý biểu mẫu hoặc gửi dữ liệu lên máy chủ
+      alert('Form submitted successfully.');
+      // Đoạn mã tiếp theo tại đây...
+    }
+  });
+</script>
+
+</body>
+</html>

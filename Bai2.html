@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc II</title>
+</head>
+<body>
+<h1>Giải phương trình bậc II</h1>
+<p>Nhập các hệ số a, b, c:</p>
+<label for="a">a:</label>
+<input type="text" id="a" name="a" value="1"><br><br>
+<label for="b">b:</label>
+<input type="text" id="b" name="b" value="0"><br><br>
+<label for="c">c:</label>
+<input type="text" id="c" name="c" value="0"><br><br>
+<button onclick="solveQuadraticEquation()">Giải</button>
+<br><br>
+<p>Kết quả:</p>
+<p id="result"></p>
+
+<script>
+    function solveQuadraticEquation() {
+        // Lấy giá trị của a, b, c từ input
+        var a = parseFloat(document.getElementById("a").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var c = parseFloat(document.getElementById("c").value);
+
+        // Tính delta
+        var delta = b * b - 4 * a * c;
+
+        // Tính nghiệm
+        var x1, x2;
+        if (delta > 0) {
+            x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            document.getElementById("result").innerText = "Nghiệm 1: " + x1 + ", Nghiệm 2: " + x2;
+        } else if (delta === 0) {
+            x1 = -b / (2 * a);
+            document.getElementById("result").innerText = "Nghiệm kép: " + x1;
+        } else {
+            document.getElementById("result").innerText = "Phương trình vô nghiệm";
+        }
+    }
+</script>
+</body>
+</html>

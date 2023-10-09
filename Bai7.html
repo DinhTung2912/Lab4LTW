@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Buttons</title>
+    <style>
+        /* CSS để tạo kiểu cho button */
+        .number-button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="button-container">
+    <!-- Tạo 64 button với số từ 1 đến 64 -->
+    <!-- Sử dụng class "number-button" cho mỗi button và đặt số bằng text -->
+    <!-- Khi nhấn vào một button, sẽ gọi hàm "handleButtonClick" -->
+    <button class="number-button" onclick="handleButtonClick(1)">1</button>
+    <button class="number-button" onclick="handleButtonClick(2)">2</button>
+    <button class="number-button" onclick="handleButtonClick(3)">3</button>
+    <button class="number-button" onclick="handleButtonClick(4)">4</button>
+    <button class="number-button" onclick="handleButtonClick(5)">5</button>
+    <button class="number-button" onclick="handleButtonClick(6)">6</button>
+    <button class="number-button" onclick="handleButtonClick(7)">7</button>
+    <button class="number-button" onclick="handleButtonClick(8)">8</button>
+    <button class="number-button" onclick="handleButtonClick(9)">9</button>
+    <button class="number-button" onclick="handleButtonClick(10)">10</button>
+    <button class="number-button" onclick="handleButtonClick(11)">11</button>
+    <button class="number-button" onclick="handleButtonClick(12)">12</button>
+    <button class="number-button" onclick="handleButtonClick(13)">13</button>
+    <button class="number-button" onclick="handleButtonClick(14)">14</button>
+    <button class="number-button" onclick="handleButtonClick(15)">15</button>
+    <button class="number-button" onclick="handleButtonClick(16)">16</button>
+    <button class="number-button" onclick="handleButtonClick(17)">17</button>
+    <button class="number-button" onclick="handleButtonClick(18)">18</button>
+    <button class="number-button" onclick="handleButtonClick(19)">19</button>
+    <button class="number-button" onclick="handleButtonClick(20)">20</button>
+    <button class="number-button" onclick="handleButtonClick(21)">21</button>
+    <button class="number-button" onclick="handleButtonClick(22)">22</button>
+    <button class="number-button" onclick="handleButtonClick(23)">23</button>
+    <button class="number-button" onclick="handleButtonClick(24)">24</button>
+    <button class="number-button" onclick="handleButtonClick(25)">25</button>
+    <button class="number-button" onclick="handleButtonClick(26)">26</button>
+    <button class="number-button" onclick="handleButtonClick(27)">27</button>
+    <button class="number-button" onclick="handleButtonClick(28)">28</button>
+    <button class="number-button" onclick="handleButtonClick(29)">29</button>
+    <button class="number-button" onclick="handleButtonClick(30)">30</button>
+    <button class="number-button" onclick="handleButtonClick(31)">31</button>
+    <button class="number-button" onclick="handleButtonClick(32)">32</button>
+    <button class="number-button" onclick="handleButtonClick(33)">33</button>
+    <button class="number-button" onclick="handleButtonClick(34)">34</button>
+    <button class="number-button" onclick="handleButtonClick(35)">35</button>
+    <button class="number-button" onclick="handleButtonClick(36)">36</button>
+    <button class="number-button" onclick="handleButtonClick(37)">37</button>
+    <button class="number-button" onclick="handleButtonClick(38)">38</button>
+    <button class="number-button" onclick="handleButtonClick(39)">39</button>
+    <button class="number-button" onclick="handleButtonClick(40)">40</button>
+    <button class="number-button" onclick="handleButtonClick(41)">41</button>
+    <button class="number-button" onclick="handleButtonClick(42)">42</button>
+    <button class="number-button" onclick="handleButtonClick(43)">43</button>
+    <button class="number-button" onclick="handleButtonClick(44)">44</button>
+    <button class="number-button" onclick="handleButtonClick(45)">45</button>
+    <button class="number-button" onclick="handleButtonClick(46)">46</button>
+    <button class="number-button" onclick="handleButtonClick(47)">47</button>
+    <button class="number-button" onclick="handleButtonClick(48)">48</button>
+    <button class="number-button" onclick="handleButtonClick(49)">49</button>
+    <button class="number-button" onclick="handleButtonClick(50)">50</button>
+    <button class="number-button" onclick="handleButtonClick(51)">51</button>
+    <button class="number-button" onclick="handleButtonClick(52)">52</button>
+    <button class="number-button" onclick="handleButtonClick(53)">53</button>
+    <button class="number-button" onclick="handleButtonClick(54)">54</button>
+    <button class="number-button" onclick="handleButtonClick(55)">55</button>
+    <button class="number-button" onclick="handleButtonClick(56)">56</button>
+    <button class="number-button" onclick="handleButtonClick(57)">57</button>
+    <button class="number-button" onclick="handleButtonClick(58)">58</button>
+    <button class="number-button" onclick="handleButtonClick(59)">59</button>
+    <button class="number-button" onclick="handleButtonClick(60)">60</button>
+    <button class="number-button" onclick="handleButtonClick(61)">61</button>
+    <button class="number-button" onclick="handleButtonClick(62)">62</button>
+    <button class="number-button" onclick="handleButtonClick(63)">63</button>
+    <button class="number-button" onclick="handleButtonClick(64)">64</button>
+</div>
+
+<script>
+    // Mảng để lưu trạng thái của các button (có thể nhấn hoặc không)
+    var buttonStates = new Array(64).fill(true); // Ban đầu, tất cả button có thể nhấn
+
+    // Hàm xử lý khi button được nhấn
+    function handleButtonClick(number) {
+        var buttonIndex = number - 1; // Chuyển đổi số button thành chỉ mục mảng
+
+        // Kiểm tra trạng thái của button
+        if (buttonStates[buttonIndex]) {
+            // Nếu button có thể nhấn, xóa nó
+            buttonStates[buttonIndex] = false;
+            document.getElementsByClassName('number-button')[buttonIndex].style.display = 'none';
+        } else {
+            // Nếu button không thể nhấn (đã bị xóa), hiển thị thông báo
+            alert("Bạn đã nhấn sai!");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.getElementById('submit_btn_6').addEventListener('click', function () {
+        // Lấy giá trị từ các trường input
+        var fullName = document.getElementById('fullName').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value.trim();
+        var day = document.getElementById('day').value.trim();
+        var month = document.getElementById('month').value.trim();
+        var year = document.getElementById('year').value.trim();
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        var paymentMethod = document.querySelector('input[name="pay"]:checked').value;
+        var cardNumber = document.getElementById('cardNumber').value.trim();
+        var cardCvc = document.getElementById('cardCvc').value.trim();
+        var expiryMonth = document.getElementById('expiryMonth').value;
+        var expiryYear = document.getElementById('expiryYear').value;
+        var termsAndConditions = document.getElementById('termsAndConditions').checked;
+
+        // Thiết lập biến kiểm tra lỗi và thông báo lỗi
+        var isError = false;
+        var errorMessages = {
+            fullName: '',
+            email: '',
+            password: '',
+            dob: '',
+            termsAndConditions: '',
+            cardNumber: '',
+            cardCvc: ''
+        };
+
+        // Kiểm tra và xử lý lỗi
+        if (fullName === '') {
+            errorMessages.fullName = 'Please enter your full name.';
+            isError = true;
+        }
+
+        if (email === '') {
+            errorMessages.email = 'Please enter your email address.';
+            isError = true;
+        }
+
+        if (password === '') {
+            errorMessages.password = 'Please enter a password.';
+            isError = true;
+        }
+
+        if (day === '' || month === '' || year === '') {
+            errorMessages.dob = 'Please enter a valid date of birth.';
+            isError = true;
+        }
+
+        if (!termsAndConditions) {
+            errorMessages.termsAndConditions = 'Please accept the terms and conditions.';
+            isError = true;
+        }
+
+        // Kiểm tra số thẻ tín dụng nếu bạn chọn phương thức thanh toán là Credit Card
+        if (paymentMethod === 'Credit Card') {
+            if (cardNumber === '') {
+                errorMessages.cardNumber = 'Please enter a valid card number.';
+                isError = true;
+            }
+
+            if (cardCvc === '') {
+                errorMessages.cardCvc = 'Please enter a valid CVC.';
+                isError = true;
+            }
+        }
+
+        // Hiển thị thông báo lỗi
+        document.getElementById('fullNameError').textContent = errorMessages.fullName;
+        document.getElementById('emailError').textContent = errorMessages.email;
+        document.getElementById('passwordError').textContent = errorMessages.password;
+        document.getElementById('dobError').textContent = errorMessages.dob;
+        document.getElementById('termsAndConditionsError').textContent = errorMessages.termsAndConditions;
+        document.getElementById('cardNumberError').textContent = errorMessages.cardNumber;
+        document.getElementById('cardCvcError').textContent = errorMessages.cardCvc;
+
+        // Nếu không có lỗi, bạn có thể tiếp tục xử lý biểu mẫu hoặc gửi dữ liệu lên máy chủ
+        if (!isError) {
+            // Thực hiện xử lý biểu mẫu hoặc gửi dữ liệu lên máy chủ
+            alert('Form submitted successfully.');
+            // Đoạn mã tiếp theo tại đây...
+        }
+    });
+</script>
+
+
+</body>
+</html>

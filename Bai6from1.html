@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.getElementById('submit_btn_6').addEventListener('click', function () {
+        // Lấy giá trị từ các trường input và select
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var services = document.getElementById('services').value;
+        var message = document.getElementById('message').value;
+
+        // Thiết lập biến kiểm tra lỗi
+        var isError = false;
+
+        // Kiểm tra dữ liệu nhập liệu và hiển thị thông báo lỗi nếu cần
+        if (name.trim() === '') {
+            document.getElementById('name-error').textContent = 'Please enter your name.';
+            isError = true;
+        } else {
+            document.getElementById('name-error').textContent = '';
+        }
+
+        if (email.trim() === '') {
+            document.getElementById('email-error').textContent = 'Please enter your email.';
+            isError = true;
+        } else {
+            document.getElementById('email-error').textContent = '';
+        }
+
+        if (phone.trim() === '') {
+            document.getElementById('phone-error').textContent = 'Please enter your phone number.';
+            isError = true;
+        } else {
+            document.getElementById('phone-error').textContent = '';
+        }
+
+        if (services === '') {
+            document.getElementById('services-error').textContent = 'Please choose a service.';
+            isError = true;
+        } else {
+            document.getElementById('services-error').textContent = '';
+        }
+
+        if (message.trim() === '') {
+            document.getElementById('message-error').textContent = 'Please enter your message.';
+            isError = true;
+        } else {
+            document.getElementById('message-error').textContent = '';
+        }
+
+        // Nếu không có lỗi, bạn có thể tiếp tục xử lý biểu mẫu tại đây
+        if (!isError) {
+            // Thực hiện xử lý biểu mẫu hoặc gửi dữ liệu lên máy chủ
+            // Ví dụ: Gửi dữ liệu bằng AJAX hoặc chuyển hướng trang
+            alert('Form submitted successfully.');
+        }
+    });
+</script>
+
+</body>
+</html>
